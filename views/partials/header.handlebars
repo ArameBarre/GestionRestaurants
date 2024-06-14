@@ -1,0 +1,39 @@
+<header>
+    <div class="wrapper">
+        <h1>Notre Restaurant</h1>
+        <nav>
+            <ul>
+                <li>
+                    <a href="/">Accueil</a>
+                </li>
+                {{#unless user}}
+                    <li>
+                        <a href="/inscription">Inscription</a>
+                    </li>
+                {{/unless}}
+                {{#unless user}}
+                    <li>
+                        <a href="/connexion">Connexion</a>
+                    </li>
+                {{/unless}}
+                {{#if user}}
+                    <li>
+                        <a href="/panier">Panier</a>
+                    </li>
+                {{/if}}
+                {{#if admin}}
+                    <li>
+                        <a href="/commande">Commandes</a>
+                    </li>
+                {{/if}}
+                {{#if user}}
+                    <li>
+                        <form action='/api/deconnexion' method='post'>
+                            <input type='submit' value="Deconnexion">
+                        </form>
+                    </li>
+                {{/if}}
+            </ul>
+        </nav>
+    </div>
+</header>
